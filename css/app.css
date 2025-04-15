@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: url('../assets/images/bg.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+
+
+.container {
+  background: transparent;
+  padding: 30px;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Optional: soft border + glow */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+
+
+h1 {
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 160px);
+  grid-template-rows: repeat(2, 180px);
+  gap: 25px;
+}
+
+.photo-box {
+  background-color: #333;
+  width: 160px;
+  height: 180px;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  transition: transform 0.3s;
+  position: relative;
+}
+
+.photo-box:hover {
+  background-color: #555;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.photo-box img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Checkmark overlay */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  background-color: rgba(0, 255, 0, 0.4);
+  color: white;
+  font-size: 100px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  display: none;
+}
+
+.photo-box.checked .checkmark {
+  display: flex;
+}
+
+/* Reset / Done button */
+#resetBtn {
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#resetBtn:hover {
+  background-color: #ff2222;
+}
+
+/* Done Image (fullscreen success image) */
+#doneImage {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+#confettiCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9;
+}
+#itemStatus {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 20px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #00ffcc;
+  border: 1px solid rgba(0, 255, 204, 0.2);
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
+  text-align: center;
+  transition: 0.3s ease;
+}
